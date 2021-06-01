@@ -9,7 +9,6 @@ const cors = require("cors");
 //middlewares con las rutas
 const indexController = require('./controllers/IndexController')
 const articleController = require('./controllers/ArticlesController')
-const messagesController = require('./controllers/CommentsController')
 const usersController = require('./controllers/UsersController')
 const authController = require('./controllers/AuthController')
 
@@ -31,7 +30,7 @@ app.use(express.json())
 //enganchamos los controladores de los diferentes recursos
 app.use(indexController)
 app.use(articleController)
-app.use(commentsController)
+// app.use(commentsController)
 app.use(usersController)
 app.use(authController)
 

@@ -37,9 +37,5 @@ router.route('/auth/login')
     res.json({token: token})
   })
 
-router.route('/auth/forggotten-password')
-  .post((req, res) => {
-    res.json({})
-  })
 
 module.exports = router
