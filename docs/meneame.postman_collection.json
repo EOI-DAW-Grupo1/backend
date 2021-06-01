@@ -1,0 +1,763 @@
+{
+	"info": {
+		"_postman_id": "bcb25b73-f2f9-4d39-8644-3598c6ec2389",
+		"name": "pizza-delicious-mock",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "listar productos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDk1MjhiY2ViNjM0ODE0ZmE5MTlkOTkiLCJmaXJzdG5hbWUiOiJKdWFuIE1hbnVlbCIsImxhc3RuYW1lIjoiQ2FzdGlsbG8iLCJlbWFpbCI6Imp1YW5tYW51ZWxAZmxhc2hleHBlcmllbmNlLm5ldCIsInByb2ZpbGUiOiJ1c2VyIiwiaWF0IjoxNjIwNjM1NTc0LCJleHAiOjE2MjMyMjc1NzR9.skYTJsMjOBPn2_a5WXf0fQoqU-5pvLXqYXQ7Pxuiq34",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar productos Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDk1MjhiY2ViNjM0ODE0ZmE5MTlkOTkiLCJmaXJzdG5hbWUiOiJKdWFuIE1hbnVlbCIsImxhc3RuYW1lIjoiQ2FzdGlsbG8iLCJlbWFpbCI6Imp1YW5tYW51ZWxAZmxhc2hleHBlcmllbmNlLm5ldCIsInByb2ZpbGUiOiJ1c2VyIiwiaWF0IjoxNjIwNjM1NTc0LCJleHAiOjE2MjMyMjc1NzR9.skYTJsMjOBPn2_a5WXf0fQoqU-5pvLXqYXQ7Pxuiq34",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtiene producto por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products/6093aea37348d7e51e029ace",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"6093aea37348d7e51e029ace"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edita producto por id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Pizza 6 estaciones\",\n    \"description\": \"Pizza 4 estaciones con aceitunas, alcachofas y jamón de york del malo.\",\n    \"category\": \"Pizzas\",\n    \"price\": 22.5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/products/6093aea37348d7e51e029ace",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"6093aea37348d7e51e029ace"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "borra producto por id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products/444",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"444"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "creación de producto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDk4ZjMwMjU4NmZiMGRmMDRhMDNiNzciLCJmaXJzdG5hbWUiOiLDgWxleCIsImxhc3RuYW1lIjoiTWFydMOtbiIsImVtYWlsIjoiYWxleEBmbGFzaGV4cGVyaWVuY2UubmV0IiwicHJvZmlsZSI6ImFkbWluIiwiaWF0IjoxNjIwNjM2NDYxLCJleHAiOjE2MjMyMjg0NjF9.5zcitKyWbA3Exilc3T7pwnE4tPuFhaIiA2x2uWYXNa8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Pizza vegana\",\n    \"image\": \"data:image/gif;base64,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\",\n    \"description\": \"Pizza BBQ con carne de vacuno viejo.\",\n    \"category\": \"Pizzas\",\n    \"price\": 35,\n    \"enabled\": true,\n    \"featured\": true\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"juanmanuel@flashexperience.net\",\n    \"password\": \"123456789\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "solicitar cambio de contraseña",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/forggotten-password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"forggotten-password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "orders",
+			"item": [
+				{
+					"name": "listar pedidos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtiene pedido por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/orders/609533ab71bc435689763927",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"orders",
+								"609533ab71bc435689763927"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edita pedido por id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"products\": [\n        {\n            \"id\": \"6093aea37348d7e51e029ace\",\n            \"qty\": 1\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/orders/609fbaf6537886cdd15a114d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"orders",
+								"609fbaf6537886cdd15a114d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edita estado pedido por id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": \"cancelled\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/orders/609533ab71bc435689763927/states",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"orders",
+								"609533ab71bc435689763927",
+								"states"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "creación de pedido",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDk1MjhiY2ViNjM0ODE0ZmE5MTlkOTkiLCJmaXJzdG5hbWUiOiJKdWFuIE1hbnVlbCIsImxhc3RuYW1lIjoiQ2FzdGlsbG8iLCJlbWFpbCI6Imp1YW5tYW51ZWxAZmxhc2hleHBlcmllbmNlLm5ldCIsInByb2ZpbGUiOiJ1c2VyIiwiaWF0IjoxNjIwNjM1NTc0LCJleHAiOjE2MjMyMjc1NzR9.skYTJsMjOBPn2_a5WXf0fQoqU-5pvLXqYXQ7Pxuiq34",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"products\": [\n        {\n            \"id\": \"6093aea37348d7e51e029ace\",\n            \"qty\": 10\n        },\n        {\n            \"id\": \"6093af2d7ed0c9356f85c220\",\n            \"qty\": 1\n        }\n    ],\n    \"notes\": \"Llamar al porterillo 101. Dejar en la tienda de enfrente si no contesta.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "listar usuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtiene usuario por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/WFXzNEquKyJMv8Gy1ZvbwY",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"WFXzNEquKyJMv8Gy1ZvbwY"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edita usuario por id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstname\": \"Juan Manuel\",\n    \"lastname\": \"Castillo\",\n    \"phone\": \"+34955222002\",\n    \"email\": \"juanmanuel@flashexperience.net\",\n    \"address\": \"C/ Mónaco 45\",\n    \"enabled\": true,\n    \"profile\": \"thanos\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/UyJ1XcSWB9KxNq89pMrsef",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"UyJ1XcSWB9KxNq89pMrsef"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "borra usuario por id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/UyJ1XcSWB9KxNq89pMrsef",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"UyJ1XcSWB9KxNq89pMrsef"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "creación de usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstname\": \"Juan Manuel\",\n    \"lastname\": \"Castillo\",\n    \"phone\": \"+34955222002\",\n    \"email\": \"juanmanuel5@flashexperience.net\",\n    \"password\": \"123456789\",\n    \"profile\": \"thanos\",\n    \"address\": \"C/ Mónaco 45\"\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "articles",
+			"item": [
+				{
+					"name": "listar artículos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/articles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"articles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtiene articulo por slug",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/articles/descuento-del-50percent-en-pizzas-y-pasta-por-el-dia-del-trabajador",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"articles",
+								"descuento-del-50percent-en-pizzas-y-pasta-por-el-dia-del-trabajador"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edita artículo por id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Cómo hacer la pizza Hawaiana perfecta\",\n    \"image\": \"/ruta/a/la/imagen.jpg\",\n    \"excerpt\": \"Entradilla del artículo\",\n    \"content\": \"Pizza 4 estaciones con aceitunas, alcachofas y jamón de york del malo.\",\n    \"author\": {\n        \"name\": \"Juan Manuel\",\n        \"bio\": \"PUes mi biografía\",\n        \"image\": \"/ruta/a/la/imagen.jpg\"\n    },\n    \"published_at\": \"2021-05-07 11:00:01\",\n    \"category\": \"General\",\n    \"enabled\": true\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/articles/6094edb789fc969425253c64",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"articles",
+								"6094edb789fc969425253c64"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "borra artículo por id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"slug\": \"como-hacer-la-pizza-hawaiana-perfecta-(y-sin-pina!)\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/articles/6094f5d6de9e309d328e48af",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"articles",
+								"6094f5d6de9e309d328e48af"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "creación de artículo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDk4ZjMwMjU4NmZiMGRmMDRhMDNiNzciLCJmaXJzdG5hbWUiOiLDgWxleCIsImxhc3RuYW1lIjoiTWFydMOtbiIsImVtYWlsIjoiYWxleEBmbGFzaGV4cGVyaWVuY2UubmV0IiwicHJvZmlsZSI6ImFkbWluIiwiaWF0IjoxNjIwNjM2NDYxLCJleHAiOjE2MjMyMjg0NjF9.5zcitKyWbA3Exilc3T7pwnE4tPuFhaIiA2x2uWYXNa8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"array payment Supervisor overriding\",\n    \"slug\": \"array-payment-supervisor-overriding\",\n    \"image\": \"http://placeimg.com/800/480/cats\",\n    \"excerpt\": \"Quia quia accusantium non cupiditate\",\n    \"author\": {\n        \"name\": \"Mary Nienow Beer\",\n        \"bio\": \"Quae sequi dolores enim voluptatibus voluptatem nostrum odit. Ipsa quia molestias inventore provident. Provident tenetur culpa consequatur et. Rerum eius voluptates aut. Odit minus rerum sit facere.\",\n        \"image\": \"http://placeimg.com/120/120/fashion\"\n    },\n    \"content\": \"Ab autem omnis blanditiis velit rerum. Asperiores inventore earum ipsa harum iusto a incidunt cum facere. Cumque dignissimos consequuntur ad. Impedit asperiores quibusdam tempora ut nemo cum voluptatibus sequi aut.\\n \\rQuasi alias voluptas aliquam earum id blanditiis est sequi fugit. Quis non velit. Doloremque quis recusandae quia eum blanditiis dolores error odit. Ut voluptates aut earum. Autem alias sed et aut perspiciatis animi qui aperiam eos.\\n \\rMinus magni porro qui maiores qui quasi quia voluptas. Quo quos perspiciatis nobis sequi et. Voluptatem modi eveniet nisi ea itaque repudiandae debitis. Veritatis nemo doloribus reprehenderit at vero illum corrupti quia.\\n \\rQuia voluptatum laboriosam alias temporibus est numquam. Dignissimos quae sint cumque et et quaerat. Laborum et molestiae. Aut iusto voluptatum aut quam iusto vitae et quasi. Cupiditate optio dicta eaque autem voluptatem minus mollitia iste laudantium.\",\n    \"published_at\": \"2021-05-14T18:23:20.522Z\",\n    \"category\": \"Restauración\",\n    \"enabled\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/articles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"articles"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "messages",
+			"item": [
+				{
+					"name": "listar mensajes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/messages",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"messages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "creación de mensaje",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Cliente contento\",\n    \"email\": \"juanmanuel@flashexperience.net\",\n    \"subject\": \"Problema con pedido\",\n    \"message\": \"La pizza que me habéis enviado tiene piña!!! y está fría!!!!\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/messages",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"messages"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "index",
+			"item": [
+				{
+					"name": "Página principal",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
