@@ -1,5 +1,5 @@
 const { Schema } = require("mongoose")
-// const slugify = require('slugify')
+const slugify = require('slugify')
 
 const ArticleSchema = new Schema({
   title: { type: String, required: true, minlength: 3, maxlength: 255 },
