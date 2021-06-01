@@ -30,7 +30,7 @@ app.use(express.json())
 //enganchamos los controladores de los diferentes recursos
 app.use(indexController)
 app.use(articleController)
-// app.use(commentsController)
+app.use(commentsController)
 app.use(usersController)
 app.use(authController)
 
