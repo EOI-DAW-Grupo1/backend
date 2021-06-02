@@ -9,7 +9,6 @@ const cors = require("cors");
 //middlewares con las rutas
 const indexController = require('./controllers/IndexController')
 const articleController = require('./controllers/ArticlesController')
-const messagesController = require('./controllers/CommentsController')
 const usersController = require('./controllers/UsersController')
 const authController = require('./controllers/AuthController')
 

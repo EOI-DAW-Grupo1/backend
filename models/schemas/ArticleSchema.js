@@ -7,7 +7,7 @@ const ArticleSchema = new Schema({
   excerpt: {type: String, required: true, maxlength: 150},
   content: { type: String, required: true, minlength: 3 },
   published_at: {type: Date, default: Date.now},
-  category: { type: String, required: true, enum: ['Restauración', 'General', 'Foodies', 'Promociones y descuentos'] },
+  category: { type: String, required: true, enum: ['Technology', 'General', 'Politics', 'Sports'] },
   enabled: { type: Boolean, default: false }
 })
 
