@@ -2,8 +2,8 @@
 
 const mongoose = require('mongoose')
 
-const MessageSchema = require('./schemas/CommentsSchema')
+const commentSchema = require('./schemas/CommentsSchema')
 
-const MessageModel = mongoose.model('messages', MessageSchema)
+const Comment = mongoose.model("comment", commentSchema)
 
-module.exports = MessageModel
+module.exports = Comment

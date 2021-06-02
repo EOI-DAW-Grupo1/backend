@@ -1,11 +1,10 @@
-const { Schema } = require("mongoose")
 
-let messageSchema = new Schema({
-  name: { type: String, required: true, minlength: 3, maxlength: 250 },
-  email: { type: String, required: true },
-  subject: { type: String, required: true },
+const mongoose = require("mongoose")
+
+const commentSchema = mongoose.Schema({
   message: { type: String, required: true },
-  created_at: { type: Date, default: Date.now },
 });
 
-module.exports = messageSchema
+
+
+module.exports = commentSchema

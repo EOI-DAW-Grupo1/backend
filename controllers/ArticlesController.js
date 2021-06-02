@@ -5,6 +5,7 @@ const express = require('express')
 const router = express.Router()
 const slugify = require('slugify')
 const articleModel = require('../models/ArticleModel')
+const Comment = require('../models/CommentsModel')
 const authMiddleware = require('../modules/authenticator')
 const publicAccess = authMiddleware(false, ['user', 'admin'])
 const onlyAdminAccess = authMiddleware(true, ['admin'])
@@ -19,7 +20,7 @@ router.route('/articles')
         filterParams.enabled = true
       }
 
-      const articleList = await articleModel.find(filterParams).sort({ published_at: 'DESC', title: 'ASC' }).limit(limit).exec()
+      const articleList = await articleModel.find().exec()
 
       res.json(articleList)
     } catch (error) {
@@ -38,6 +39,7 @@ router.route('/articles')
       newArticle.slug = slugify(newArticle.slug, { lower: true, strict: true })
 
       newArticle = await new articleModel(newArticle).save()
+
 
       res.status(201).json(newArticle)
     } catch (error) {
@@ -69,6 +71,22 @@ router.route('/articles/:articleSlug')
       res.status(500).json({ message: error.message })
     }
   })
+
+router.route('/articles/:articleId/comments')
+.post(publicAccess, async(req,res) => {
+  const id = req.params.id
+    const {text} = req.body
+
+    const comment = new Comment()
+    comment.message = text
+    await comment.save()
+
+    const article = await Article.findById(id)
+    article.comments.push( comment )
+    article.save()
+
+    return res.json(article)
+})
 
 router.route('/articles/:articleId')
   .delete(publicAccess, async (req, res) => {
