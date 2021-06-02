@@ -7,8 +7,7 @@ const ArticleSchema = new Schema({
   excerpt: {type: String, required: true, maxlength: 150},
   content: { type: String, required: true, minlength: 3 },
   published_at: {type: Date, default: Date.now},
-  category: { type: String, required: true, enum: ['Technology', 'General', 'Politics', 'Sports'] },
-  enabled: { type: Boolean, default: false }
+  category: { type: String, required: true, enum: ['Technology', 'General', 'Politics', 'Sports'] }
 })
 
 module.exports = ArticleSchema

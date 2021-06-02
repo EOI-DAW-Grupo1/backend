@@ -11,6 +11,7 @@ const indexController = require('./controllers/IndexController')
 const articleController = require('./controllers/ArticlesController')
 const usersController = require('./controllers/UsersController')
 const authController = require('./controllers/AuthController')
+const messagesController = require('./controllers/CommentsController')
 
 //server instance
 const app = express()

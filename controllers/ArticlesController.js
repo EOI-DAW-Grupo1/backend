@@ -15,9 +15,9 @@ router.route('/articles')
       const limit = req.query.hasOwnProperty('limit') ? parseInt(req.query.limit) : 50
       const filterParams = {}
 
-      // if (!req.tokenData || req.tokenData.profile === 'user') {
-      //   filterParams.enabled = true
-      // }
+      if (!req.tokenData || req.tokenData.profile === 'user') {
+        filterParams.enabled = true
+      }
 
       const articleList = await articleModel.find(filterParams).sort({ published_at: 'DESC', title: 'ASC' }).limit(limit).exec()
 
@@ -26,13 +26,12 @@ router.route('/articles')
       res.status(500).json({ message: error.message })
     }
   })
-  .post(onlyAdminAccess, async (req, res) => {
+  .post(publicAccess, async (req, res) => {
     try {
       let newArticle = req.body
 
       if (!newArticle.hasOwnProperty("slug") ||
         (newArticle.hasOwnProperty("slug") && newArticle.slug === '')) {
-        //generamos el slug
         newArticle.slug = newArticle.title
       }
 
@@ -72,32 +71,7 @@ router.route('/articles/:articleSlug')
   })
 
 router.route('/articles/:articleId')
-  // .put(onlyAdminAccess, async (req, res) => {
-  //   try {
-  //     const articleId = req.params.articleId
-  //     const articleData = req.body
-
-  //     if (!articleData.hasOwnProperty("slug") ||
-  //       (articleData.hasOwnProperty("slug") && articleData.slug === '')) {
-  //       //generamos el slug
-  //       articleData.slug = articleData.title
-  //     }
-
-  //     articleData.slug = slugify(articleData.slug, { lower: true, strict: true })
-
-  //     let updatedItem = await articleModel.findOneAndUpdate({ _id: articleId }, articleData, { new: true }).exec()
-
-  //     if (!updatedItem) {
-  //       res.status(404).json({ message: `Artículo con identificador ${articleId} no encontrado.` })
-  //       return
-  //     }
-
-  //     res.json(updatedItem)
-  //   } catch (error) {
-  //     res.status(500).json({ message: error.message })
-  //   }
-  // })
-  .delete(onlyAdminAccess, async (req, res) => {
+  .delete(publicAccess, async (req, res) => {
     try {
       const articleId = req.params.articleId
 
