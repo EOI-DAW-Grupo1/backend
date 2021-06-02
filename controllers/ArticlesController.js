@@ -3,24 +3,26 @@
 
 const express = require('express')
 const router = express.Router()
+const { Mongoose } = require("mongoose")
 const slugify = require('slugify')
-const articleModel = require('../models/ArticleModel')
+const Article = require('../models/ArticleModel')
 const Comment = require('../models/CommentsModel')
 const authMiddleware = require('../modules/authenticator')
 const publicAccess = authMiddleware(false, ['user', 'admin'])
 const onlyAdminAccess = authMiddleware(true, ['admin'])
 
+require("../modules/database")
+
 router.route('/articles')
   .get(publicAccess, async (req, res) => {
     try {
-      const limit = req.query.hasOwnProperty('limit') ? parseInt(req.query.limit) : 50
-      const filterParams = {}
 
-      if (!req.tokenData || req.tokenData.profile === 'user') {
-        filterParams.enabled = true
-      }
 
-      const articleList = await articleModel.find().exec()
+      // if (!req.tokenData || req.tokenData.profile === 'user') {
+      //   filterParams.enabled = true
+      // }
+
+      const articleList = await Article.find().exec()
 
       res.json(articleList)
     } catch (error) {
@@ -38,7 +40,7 @@ router.route('/articles')
 
       newArticle.slug = slugify(newArticle.slug, { lower: true, strict: true })
 
-      newArticle = await new articleModel(newArticle).save()
+      newArticle = await new Article(newArticle).save()
 
 
       res.status(201).json(newArticle)
@@ -47,33 +49,11 @@ router.route('/articles')
     }
   })
 
-router.route('/articles/:articleSlug')
-  .get(publicAccess, async (req, res) => {
-    try {
-      const articleSlug = req.params.articleSlug
 
-      const filterParams = {slug: articleSlug}
 
-      if (!req.tokenData || req.tokenData.profile === 'user') {
-        filterParams.enabled = true
-      }
-
-      const foundArticle = await articleModel.findOne(filterParams).exec()
-
-      //early return
-      if (!foundArticle) {
-        res.status(404).json({ message: `Artículo con ruta ${articleSlug} no encontrado.` })
-        return
-      }
-
-      res.json(foundArticle)
-    } catch (error) {
-      res.status(500).json({ message: error.message })
-    }
-  })
-
-router.route('/articles/:articleId/comments')
+router.route('/articles/:id/comments')
 .post(publicAccess, async(req,res) => {
+
   const id = req.params.id
     const {text} = req.body
 
@@ -82,18 +62,25 @@ router.route('/articles/:articleId/comments')
     await comment.save()
 
     const article = await Article.findById(id)
-    article.comments.push( comment )
+    article.comments.push({_id: comment._id})
     article.save()
-
     return res.json(article)
 })
 
-router.route('/articles/:articleId')
+router.route('/articles/:id')
+.get(publicAccess, async(req,res) => {
+
+    const id = req.params.id
+
+    const article = await Article.findById(id).populate("comments").exec()
+
+    return res.json(article)
+})
   .delete(publicAccess, async (req, res) => {
     try {
       const articleId = req.params.articleId
 
-      const result = await articleModel.findOneAndDelete({ _id: articleId }).exec()
+      const result = await Article.findOneAndDelete({ _id: articleId }).exec()
 
       if (!result) {
         res.status(404).json({ message: `Artículo con identificador ${articleId} no encontrado.` })

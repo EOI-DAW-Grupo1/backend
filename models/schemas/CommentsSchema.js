@@ -1,10 +1,10 @@
 
-const mongoose = require("mongoose")
+// const mongoose = require("mongoose")
 
-const commentSchema = mongoose.Schema({
-  message: { type: String, required: true },
-});
+// const commentSchema = mongoose.Schema({
+//   message: { type: String, required: true },
+// });
 
+// const Comment = mongoose.model('comment', commentSchema)
 
-
-module.exports = commentSchema
+// module.exports = Comment

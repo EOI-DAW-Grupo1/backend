@@ -1,8 +1,8 @@
-'use strict'
+const mongoose = require("mongoose")
 
-const mongoose = require('mongoose')
-
-const commentSchema = require('./schemas/CommentsSchema')
+const commentSchema = mongoose.Schema({
+  message: {type: String}
+});
 
 const Comment = mongoose.model("comment", commentSchema)
 
