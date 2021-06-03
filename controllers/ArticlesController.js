@@ -8,7 +8,7 @@ const slugify = require('slugify')
 const Article = require('../models/ArticleModel')
 const Comment = require('../models/CommentsModel')
 const authMiddleware = require('../modules/authenticator')
-const publicAccess = authMiddleware(false, ['user', 'admin'])
+const publicAccess = authMiddleware(true, ['user', 'admin'])
 const onlyAdminAccess = authMiddleware(true, ['admin'])
 
 require("../modules/database")
@@ -63,7 +63,7 @@ router.route('/articles/:id/comments')
 
     const article = await Article.findById(id)
     article.comments.push({_id: comment._id})
-    article.save()
+    article.save().then(() => res.redirect('/'))
     return res.json(article)
 })
 
@@ -76,7 +76,7 @@ router.route('/articles/:id')
 
     return res.json(article)
 })
-  .delete(publicAccess, async (req, res) => {
+  .delete(onlyAdminAccess, async (req, res) => {
     try {
       const articleId = req.params.articleId
 
